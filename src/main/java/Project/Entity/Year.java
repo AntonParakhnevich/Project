@@ -10,6 +10,7 @@ import lombok.ToString;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +45,7 @@ public class Year implements Serializable {
 //    @Builder.Default
 //    private Set<Budget> budgets=new HashSet<>();
 
-    @OneToMany(mappedBy = "year", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "year", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @Builder.Default
     private Set<Month> months = new HashSet<>();
 

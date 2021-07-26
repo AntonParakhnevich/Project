@@ -16,4 +16,6 @@ public interface YearDAO extends DAO<Year> {
     List<Month> getAllMonth(Long year);
 
     void addMonth(Month month, Long idYear) throws SQLException;
+
+    void deleteMonth(Long idMonth) throws SQLException;
 }

@@ -5,7 +5,7 @@
 <h3>Новый месяц</h3>
 <form method="post">
     <label>Месяц</label><br>
-    <input name="month" type="text"/><br>
+    <input name="month" type="month"/><br>
     <input type="submit" value="Добавить" style="display: inline"/>
 </form>
 </body>

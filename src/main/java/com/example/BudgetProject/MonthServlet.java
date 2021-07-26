@@ -33,7 +33,6 @@ public class MonthServlet extends HttpServlet {
         Long month = Long.parseLong(req.getParameter("idMonth"));
         Long year = Long.parseLong(req.getParameter("year"));
 
-        req.setCharacterEncoding("UTF-8");
         CategoryIncomeService categoryIncomeService = new CategoryIncomeService();
         List<CategoryIncome> allCategoriesIncome = categoryIncomeService.getAll(month);
 

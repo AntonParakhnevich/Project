@@ -6,12 +6,13 @@ import Project.Entity.CategoryIncome;
 import Project.Entity.Expenses;
 import Project.Entity.Family;
 import Project.Entity.Income;
-import Project.Entity.Month;
 import Project.Entity.Year;
 import Project.Service.CategoryCostService;
 import Project.Service.YearService;
 import Project.Util.SessionUtil;
 import org.hibernate.Session;
+
+import java.time.Month;
 
 /**
  * Created by .
@@ -19,50 +20,54 @@ import org.hibernate.Session;
 public class Main {
 
     public static void main(String[] args) {
-        Family family = Family.builder().login("para").password("1234").build();
-        Budget budget = new Budget();
-        Year year = Year.builder().year(2020).build();
-        Year year1 = Year.builder().year(2021).build();
-        Month april = Month.builder().name("april").build();
-        Month may = Month.builder().name("may").build();
-        CategoryCost komun = CategoryCost.builder().name("komun").price(100).binding(5).build();
-        CategoryCost razvle = CategoryCost.builder().name("razvle").price(500).binding(3).build();
-        CategoryIncome zp = CategoryIncome.builder().name("zp").value(1000).build();
 
-        CategoryCost komunMay = CategoryCost.builder().name("komun").price(50).binding(5).build();
-        CategoryCost razvleMay = CategoryCost.builder().name("razvle").price(400).binding(3).build();
+        java.time.Month month = (java.time.Month.valueOf("APRIL")) ;
+        System.out.println(month);
 
-        Expenses expensesApril = Expenses.builder().build();
-        Income incomeApril = Income.builder().build();
-
-        Expenses expensesMay = Expenses.builder().build();
-        Income incomeMay = Income.builder().build();
-
-        expensesApril.addCategory(komun);
-        expensesApril.addCategory(razvle);
-
-        expensesMay.addCategory(komunMay);
-        expensesMay.addCategory(razvleMay);
-
-        incomeApril.addCategory(zp);
-
-        incomeMay.addCategory(zp);
-
-        april.setExpenses(expensesApril);
-        april.setIncome(incomeApril);
-        april.setYear(year);
-
-        may.setExpenses(expensesMay);
-        may.setIncome(incomeMay);
-        may.setYear(year);
-
-        year.addMonth(april);
-        year.addMonth(may);
-        budget.addYear(year);
-//        budget.addYear(year1);
-
-        family.setBudget(budget);
-        budget.setFamily(family);
+//        Family family = Family.builder().login("para").password("1234").build();
+//        Budget budget = new Budget();
+//        Year year = Year.builder().year(2020).build();
+//        Year year1 = Year.builder().year(2021).build();
+//        Month april = Month.builder().name("april").build();
+//        Month may = Month.builder().name("may").build();
+//        CategoryCost komun = CategoryCost.builder().name("komun").price(100).binding(5).build();
+//        CategoryCost razvle = CategoryCost.builder().name("razvle").price(500).binding(3).build();
+//        CategoryIncome zp = CategoryIncome.builder().name("zp").value(1000).build();
+//
+//        CategoryCost komunMay = CategoryCost.builder().name("komun").price(50).binding(5).build();
+//        CategoryCost razvleMay = CategoryCost.builder().name("razvle").price(400).binding(3).build();
+//
+//        Expenses expensesApril = Expenses.builder().build();
+//        Income incomeApril = Income.builder().build();
+//
+//        Expenses expensesMay = Expenses.builder().build();
+//        Income incomeMay = Income.builder().build();
+//
+//        expensesApril.addCategory(komun);
+//        expensesApril.addCategory(razvle);
+//
+//        expensesMay.addCategory(komunMay);
+//        expensesMay.addCategory(razvleMay);
+//
+//        incomeApril.addCategory(zp);
+//
+//        incomeMay.addCategory(zp);
+//
+//        april.setExpenses(expensesApril);
+//        april.setIncome(incomeApril);
+//        april.setYear(year);
+//
+//        may.setExpenses(expensesMay);
+//        may.setIncome(incomeMay);
+//        may.setYear(year);
+//
+//        year.addMonth(april);
+//        year.addMonth(may);
+//        budget.addYear(year);
+////        budget.addYear(year1);
+//
+//        family.setBudget(budget);
+//        budget.setFamily(family);
 
 
 //        Budget build = Budget.builder().build();

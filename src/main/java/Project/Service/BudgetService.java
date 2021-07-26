@@ -18,4 +18,7 @@ public class BudgetService {
             throwables.printStackTrace();
         }
     }
+    public static Integer calculationAccumulationForTheTime(int years,int income,int cost){
+        return years*12*(income-cost);
+    }
 }

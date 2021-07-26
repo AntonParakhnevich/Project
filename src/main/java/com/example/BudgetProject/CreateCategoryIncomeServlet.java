@@ -28,6 +28,7 @@ public class CreateCategoryIncomeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         CategoryIncomeService categoryIncomeService = new CategoryIncomeService();
         IncomeService incomeService = new IncomeService();
 

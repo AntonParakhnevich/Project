@@ -6,9 +6,8 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-</h1>
 <p>Фамилия: ${requestScope.family.login}</p>
-<p>Накопления: ${requestScope.family.budget.calculationTotalAccumulation()}</p>
+<p>Накопления: ${sessionScope.family.budget.calculationTotalAccumulation()}</p>
 <p></p>
 <p>Года:</p>
 <c:forEach items="${requestScope.allYears}" var="year">
@@ -19,9 +18,9 @@
     </tr>
 </c:forEach>
 
-<a href="createYear">Добавить</a>
+<h1><a href="createYear">Добавить</a></h1>
+<a href="calculate">Рассчитать накопления</a>
 <a href="logout">Выход</a>
-
 
 
 </body>
