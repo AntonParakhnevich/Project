@@ -1,16 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language"
+       value="${sessionScope.language}"
+       scope="session"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="translations"/>
 <html>
 <body>
-<h3>Регистрация</h3>
+<h3><fmt:message key="registration"/></h3>
 <form method="post">
-    <label>Логин</label><br>
-    <input type="text" required placeholder="login" name="login"><br>
+<label><fmt:message key="login"/></label><br>
+    <input type="text" required placeholder="<fmt:message key="login"/>" name="login"><br>
 
-    <label>Пароль</label><br>
-    <input type="text" required placeholder="password" name="password"><br>
+    <label><fmt:message key="password"/></label><br>
+    <input type="text" required placeholder="<fmt:message key="password"/>" name="password"><br>
 
-    <input type="submit" value="Регистрация"/>
-</form>
-</body>
-</html>
+    <input type="submit" value="<fmt:message key="registration"/>"/>
+    <%--    <form method="post" action='<c:url value="/hello-servlet"/>' style="display:inline;">--%>
+    <%--        <input type="button" value="Назад">--%>
+    <%--    </form>--%>
+    <a href="start" style="display: inline"><fmt:message key="back"/></a>
+    </body>
+    </html>

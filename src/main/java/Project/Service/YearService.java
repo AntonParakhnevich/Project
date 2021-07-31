@@ -56,4 +56,12 @@ public class YearService {
         }
     }
 
+    public void deleteMonth(Long idMonth){
+        try {
+            implDaoYear.deleteMonth(idMonth);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 }

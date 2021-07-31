@@ -11,6 +11,7 @@ import lombok.ToString;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,7 +43,7 @@ public class Budget implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "budget_year",
             joinColumns = @JoinColumn(name = "B_ID"),
             inverseJoinColumns = @JoinColumn(name = "Y_ID"))
@@ -65,6 +66,7 @@ public class Budget implements Serializable {
             Set<Month> months = y.getMonths();
             for (Month m : months) {
                 total += m.calculationAccumulationInMonth();
+                System.out.println(total);
             }
         }
         return total;

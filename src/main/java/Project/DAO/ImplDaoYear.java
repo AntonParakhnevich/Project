@@ -81,4 +81,13 @@ public class ImplDaoYear implements YearDAO {
         session.getTransaction().commit();
         session.close();
     }
+
+    @Override
+    public void deleteMonth(Long idMonth) throws SQLException {
+        Session session = SessionUtil.getSession();
+        session.getTransaction().begin();
+        session.createNativeQuery("delete from months where id=?;").setParameter(1,idMonth).executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+    }
 }

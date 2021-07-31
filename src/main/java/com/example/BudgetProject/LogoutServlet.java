@@ -17,7 +17,7 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        session.invalidate();
+        session.removeAttribute("family");
         resp.sendRedirect("http://localhost:8080/BudgetProject_war_exploded/start");
     }
 }

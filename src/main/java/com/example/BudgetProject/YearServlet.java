@@ -1,6 +1,8 @@
 package com.example.BudgetProject;
 
+import Project.Entity.Family;
 import Project.Entity.Month;
+import Project.Service.FamilyService;
 import Project.Service.YearService;
 
 import javax.servlet.RequestDispatcher;
@@ -25,11 +27,12 @@ public class YearServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        FamilyService familyService = new FamilyService();
         YearService yearService = new YearService();
         Long year = Long.parseLong(req.getParameter("year"));
-        req.setAttribute("year",year);
-
+        req.setAttribute("year", year);
+        Family family = (Family) req.getSession().getAttribute("family");
+        req.getSession().setAttribute("family", familyService.getFamily(family.getId()));
         List<Month> allMonth = yearService.getAllMonth(year);
         req.setAttribute("months", allMonth);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Year.jsp");
