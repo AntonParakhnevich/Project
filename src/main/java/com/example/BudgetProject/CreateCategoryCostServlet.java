@@ -26,7 +26,7 @@ public class CreateCategoryCostServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
+
         CategoryCostService categoryCostService = new CategoryCostService();
         ExpensesService expensesService = new ExpensesService();
 

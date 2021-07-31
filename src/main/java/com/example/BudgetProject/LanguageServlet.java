@@ -12,12 +12,21 @@ import java.io.IOException;
 /**
  * Created by .
  */
-@WebServlet("/logout")
-public class LogoutServlet extends HttpServlet {
+@WebServlet("/language")
+public class LanguageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/WEB-INF/language.jsp");
+        requestDispatcher.forward(req,resp);
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String language = req.getParameter("language");
         HttpSession session = req.getSession();
-        session.removeAttribute("family");
+        session.setAttribute("language",language);
+//        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/WEB-INF/start.jsp");
+//        requestDispatcher.forward(req,resp);
         resp.sendRedirect("http://localhost:8080/BudgetProject_war_exploded/start");
+
     }
 }

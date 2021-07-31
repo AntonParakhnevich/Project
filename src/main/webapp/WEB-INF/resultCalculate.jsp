@@ -1,14 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language"
+       value="${sessionScope.language}"
+       scope="session"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="translations"/>
 <html>
 <body>
-<h3>Расчет накоплений</h3>
+<h3><fmt:message key="calculationAccumulation"/> </h3>
 <table>
     <tr>
-        <th>Количество лет</th>
-        <th>Доходы</th>
-        <th>Расходы</th>
-        <th>Накопления</th>
+        <th><fmt:message key="totalYears"/> </th>
+        <th><fmt:message key="incomes"/> </th>
+        <th><fmt:message key="costs"/> </th>
+        <th><fmt:message key="accumulations"/> </th>
     </tr>
     <tr>
         <th>${requestScope.years}</th>
@@ -18,7 +24,7 @@
     </tr>
 </table>
 <form method="post" action='<c:url value="/hello-servlet"/>' style="display:inline;">
-    <input type="submit" value="Назад">
+    <input type="submit" value="<fmt:message key="back"/> ">
 </form>
 </body>
 </html>

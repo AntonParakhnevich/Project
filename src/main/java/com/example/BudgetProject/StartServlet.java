@@ -28,7 +28,12 @@ public class StartServlet extends HttpServlet {
         FamilyService familyService = new FamilyService();
         String login = req.getParameter("login");
         String password = req.getParameter("password");
+
+        System.out.println(login);
+        System.out.println(password);
+
         if(familyService.findLoginAndPassword(login,password)){
+            System.out.println("true");
             Family family = familyService.getByLoginAndPassword(login, password);
             HttpSession session = req.getSession();
             session.setAttribute("family",family);
@@ -36,6 +41,7 @@ public class StartServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
 
         }else {
+            System.out.println("false");
             RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/WEB-INF/start.jsp");
             requestDispatcher.forward(req,resp);
         }

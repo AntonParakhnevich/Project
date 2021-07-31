@@ -21,8 +21,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        java.time.Month month = (java.time.Month.valueOf("APRIL")) ;
-        System.out.println(month);
+
+        System.out.println(Month.MAY.name());
 
 //        Family family = Family.builder().login("para").password("1234").build();
 //        Budget budget = new Budget();
