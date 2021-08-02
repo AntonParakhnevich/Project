@@ -18,6 +18,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by .
@@ -46,5 +50,11 @@ public class Family implements Serializable {
     @OneToOne(mappedBy = "family",cascade = CascadeType.ALL)
     @JoinColumn(name = "budget_id")
     private Budget budget;
+
+//    private List<Budget> budgets = new ArrayList<>()
+//    private Set<IncomeCategory> incomeCategories = new HashSet<>();
+//    private Set<OutcomeCategory> outcomeCategories = new HashSet<>();
+//    private List<Income> incomes = new ArrayList<>(); ???
+//    private List<Outcome> outcomes = new ArrayList<>(); ???
 
 }

@@ -36,9 +36,13 @@ public class RegistrationServlet extends HttpServlet {
             requestDispatcher.forward(req, resp);
         }
         else
-        {
-            Budget budget = Budget.builder().build();
-            Family family = Family.builder().login(login).password(password).budget(budget).build();
+        { // you should format all code in all classes. Just use Ctrl+alt+l
+            Budget budget = Budget.builder().build(); // use constructor
+            Family family = Family.builder()
+                    .login(login)
+                    .password(password)
+                    .budget(budget)
+                    .build(); // you should such format for builders
             budget.setFamily(family);
             familyService.save(family);
             resp.sendRedirect("http://localhost:8080/BudgetProject_war_exploded/start");

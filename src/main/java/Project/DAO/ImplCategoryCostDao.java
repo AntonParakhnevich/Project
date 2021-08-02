@@ -11,9 +11,9 @@ import java.util.List;
 /**
  * Created by .
  */
-public class ImplCategoryCostDao implements CategoryCostDAO {
+public class ImplCategoryCostDao implements CategoryCostDAO { // as I know the common practise is to name such classes CategoryCostDaoImpl
     @Override
-    public void save(CategoryCost cost) throws SQLException {
+    public void save(CategoryCost cost) throws SQLException { // remove unnecessary exception declaration, after that you could remove try-catch in services
         Session session = SessionUtil.getSession();
         session.getTransaction().begin();
         session.save(cost);

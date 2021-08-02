@@ -32,7 +32,7 @@ public class ImplDaoFamily implements FamilyDAO {
     }
 
     @Override
-    public void change(Long id, String name) throws SQLException {
+    public void change(Long id, String name) throws SQLException { // unclear method name, doesn't say anything
         Session session = SessionUtil.getSession();
         session.getTransaction().begin();
         Family family = session.get(Family.class, id);
@@ -43,10 +43,10 @@ public class ImplDaoFamily implements FamilyDAO {
     }
 
     @Override
-    public Boolean findLoginAndPassword(String login, String password) throws SQLException {
+    public Boolean findLoginAndPassword(String login, String password) throws SQLException { // name isFamilyExist
         Session session = SessionUtil.getSession();
         session.getTransaction().begin();
-        List<Family> resultList = session.createNativeQuery("SELECT * from family where login=? && password=?; ", Family.class)
+        List<Family> resultList = session.createNativeQuery("SELECT * from family where login=? && password=?; ", Family.class) // ты здесь достаешь список!!! семей, который потянут бюджеты и тд. А тебе нужно всего лишь проверить есть ли семья с таким паролем или нет. Это очень плохо. По-моему в sql есть exist запрос, который вернет true/false
                 .setParameter(1, login)
                 .setParameter(2, password)
                 .getResultList();

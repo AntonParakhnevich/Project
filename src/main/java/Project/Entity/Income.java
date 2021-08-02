@@ -21,6 +21,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -63,4 +65,9 @@ public class Income implements Serializable {
         }
         return totalIncome;
     }
+
+//    private Family family;
+//    private IncomeCategory incomeCategory;
+//    private BigDecimal total;
+//    private LocalDate date;
 }

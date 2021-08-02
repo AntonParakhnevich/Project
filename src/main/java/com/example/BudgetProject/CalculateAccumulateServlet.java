@@ -24,6 +24,7 @@ public class CalculateAccumulateServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // do you have validation for the parameters bellow?
         int years = Integer.parseInt(req.getParameter("years"));
         int income = Integer.parseInt(req.getParameter("income"));
         int cost = Integer.parseInt(req.getParameter("cost"));
@@ -34,7 +35,7 @@ public class CalculateAccumulateServlet extends HttpServlet {
         req.setAttribute("cost",cost);
         req.setAttribute("accumulation",accumulation);
 
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/WEB-INF/resultCalculate.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/WEB-INF/resultCalculate.jsp"); // i think the name calculationResult would be better
         requestDispatcher.forward(req,resp);
 
     }

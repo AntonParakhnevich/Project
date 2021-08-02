@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class FamilyService {
     ImplDaoFamily implDaoFamily = new ImplDaoFamily();
 
-    public void save(Family family) {
+    public void save(Family family) { // name createFamily
         try {
             implDaoFamily.save(family);
         } catch (SQLException throwables) {
@@ -45,7 +45,7 @@ public class FamilyService {
         }
     }
 
-    public boolean findLoginAndPassword(String login, String password) {
+    public boolean findLoginAndPassword(String login, String password) { // name isFamilyExist or familyExists
         boolean family = false;
         try {
             family = implDaoFamily.findLoginAndPassword(login, password);
@@ -55,7 +55,7 @@ public class FamilyService {
         return family;
     }
 
-    public Family getByLoginAndPassword(String login, String password) {
+    public Family getByLoginAndPassword(String login, String password) { // getFamily(preferable, you can just overload this method), getFamilyByCredentials, getFamilyByLoginAndPassword
         Family family = null;
         try {
             family = implDaoFamily.getByLoginAndPassword(login, password);

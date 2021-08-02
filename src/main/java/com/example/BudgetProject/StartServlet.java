@@ -33,7 +33,7 @@ public class StartServlet extends HttpServlet {
         System.out.println(password);
 
         if(familyService.findLoginAndPassword(login,password)){
-            System.out.println("true");
+            System.out.println("true"); // если ты хочешь логировать какие-то действия, то ты потом глядя на логи программы должен четко понимать как и что отработало. Этот лог не говорит ни о чем. Можно написать что-то типа Login and password were applied
             Family family = familyService.getByLoginAndPassword(login, password);
             HttpSession session = req.getSession();
             session.setAttribute("family",family);
